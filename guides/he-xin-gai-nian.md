@@ -30,15 +30,15 @@ var bot = new builder.UniversalBot(connector);
 
 现在，我们建立了我们的bot和connector，我们需要给我们新建的bot对象添加一个对话。Botbuider将对话应用切分成叫做对话的组件。如果你想以构建一个web 应用的思路来构建一个会话应用，每个会话可以被认为是会话应用中的路由。当用户给你的bot发送一条消息的时候，框架将会追踪当前激活的是哪个会话，并自动地把收到的消息路由给激活的会话。对于我们的HelloBot，我们只需要添加单一的根(root)"/"会话来用"Hello World"来响应所有的消息。
 
-<pre><code>var builder = require('botbuilder');
+```js
+var builder = require('botbuilder');
 
 var connector = new builder.ConsoleConnector().listen();
 var bot = new builder.UniversalBot(connector);
 bot.dialog('/', function (session) {
     session.send('Hello World');
 });
-</code></pre>
-
+```
 我们可以运行我们的bot，并且用命令行与之交互。所以，运行bot并输入"hello":
 <pre><code>node app.js
 hello
