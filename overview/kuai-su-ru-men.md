@@ -7,7 +7,7 @@
 Nodejs版的BotBuilder 是一个强大的框架，用来构建可以处理自由的交互和更多的引导，并向用户返回可能的结果的机器人。它很容易使用。像Express和Restify这样的模型框架提供给开发者一个熟悉的方式来写聊天机器人。
 
 高级特性：
- 
+
 - 强大的对话系统：拥有单一和组合的对话
 - 内置的提示，可以提示用户回答是/否、字符串、数字、时间或者日期、从列表中选择、上传照片或者视频。
 - 内置的对话（dialog），可以利用像Luis这样的强大的 AI框架。
@@ -20,7 +20,7 @@ Nodejs版的BotBuilder 是一个强大的框架，用来构建可以处理自由
 使用npm获取Bot Builder 和Restify模块：
 
 新建一个app.js 文件，用下面的几行代码say hello
-<pre><code>
+```javascript
 var restify = require('restify');
 var builder = require('botbuilder');
 
@@ -31,9 +31,9 @@ var builder = require('botbuilder');
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
-   console.log('%s listening to %s', server.name, server.url); 
+   console.log('%s listening to %s', server.name, server.url);
 });
-  
+
 // Create chat bot
 var connector = new builder.ChatConnector({
     appId: process.env.MICROSOFT_APP_ID,
@@ -49,14 +49,16 @@ server.post('/api/messages', connector.listen());
 bot.dialog('/', function (session) {
     session.send("Hello World");
 });
-</code></pre>
+```
 
 ## 测试你的bot ##
 在本地主机使用 [bot framework 模拟器](URL'https://docs.botframework.com/en-us/tools/bot-framework-emulator/')来测试你的bot
 
 从[此处](URL'https://aka.ms/bf-bc-emulator')安装模拟器。然后，在控制台窗口启动你的bot
 
+```sh
 node app.js
+```
 
 启动模拟器，对你的bot说声hello。
 
