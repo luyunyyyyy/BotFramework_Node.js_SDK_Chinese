@@ -3,10 +3,14 @@
 ## Overview
 
 * [My Awesome API](README.md)
-* [00](00.md)
-* [ooo](ooo.md)
 
-## Methods
+## Guides
 
-* [Defining Methods](methods.md)
+* [核心概念](guides/he-xin-gai-nian.md)
+
+## Chat bot
+
+## Calling Bots
+
+## Libraries
 
