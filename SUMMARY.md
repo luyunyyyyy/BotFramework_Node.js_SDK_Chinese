@@ -3,19 +3,18 @@
 ## Overview
 
 * [README](README.md)
-* [快速入门](Overiew/kuai-su-ru-men.md)
+* [快速入门](Overiew/getting-started.md)
 
 ## Guides
 
-* [核心概念 \(80%\)](guides/he-xin-gai-nian.md)
-* 自然语言理解 \(0%\)
+* [核心概念 \(80%\)](guides/core-concepts.md)
+* [自然语言理解 \(75%\)](guides/understanding-natural-language.md)
 * 使用VSCode进行本地调试 \(0%\)
 * 部署到Azure \(0%\)
-* [示例 \(0%\)](guides/shi-li-0.md)
+* [示例 \(0%\)](guides/examples.md)
 
 ## Chat bot
 
 ## Calling Bots
 
 ## Libraries
-
