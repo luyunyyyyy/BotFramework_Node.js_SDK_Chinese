@@ -191,3 +191,26 @@
   我们使用[瀑布流](https://docs.botframework.com/en-us/node/builder/chat/dialogs/#waterfall)来实现 set_alarm 和 delete_alarm [意图处理器](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/#intent-handling)。这是一个你可能会用在你的大部分意图处理方式上的常见模式。瀑布流这种方式在 Bot Builder 运作的第一步是某个对话（或像这个例子中的意图处理器）被激活并调用了瀑布流。接下来做些工作，之后通过调用其他对话（例如内置的提示）或者可选地调用传入的 next() 函数，继续执行瀑布流。当一个对话在某一步被调用了，任何从对话中返回的结果都会作为输入传入下一步的 results 参数。
 
   为了防止意图处理器将 LUIS 识别的任何实体从第一步，一路都在参数中传送；这些额外的信息往往还不是你在完全处理用户请求前想要的。LUIS 使用实体来一路传送额外的数据，但说真的，你不会想获得的是用户之前输入的每一点信息。所以在 set_alarm 这个例子中，我们想要支持的是“设定五分钟后的闹钟叫我起床”、“设个闹钟叫我起床”或就是“设个闹钟”。这意味着我们也许不总是从 LUIS 中获得所有我们期待的实体，甚至当我们得到他们的时候，我们希望有些实体被设定成无效的。所以在所有情况下，我们都要能准备好提示词，来提示用户哪些实体是无效的或是缺少的。Bot Builder 使我们相对容易地来在你的机器人中，用[瀑布流](https://docs.botframework.com/en-us/node/builder/chat/dialogs/#waterfall)和内置[提示语](https://docs.botframework.com/en-us/node/builder/chat/prompts/)来创建多变的提示。
+
+  请看处理 set_alarm 意图的瀑布流。我们将第一次尝试验证并储存任何从 LUIS 获得的任何实体。Bot Builder 包含了一个有很多与实体有关的函数的 [EntityRecognizer](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/#entity-recognition) 类。这个例子中，时间能被很好地分解；常常，跨越多个实体的时间也行。(译注：此句翻译存疑) 你能使用 [EntityRecognizer.resolveTime()](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/#resolving-dates--times) 函数来得到一个真正的与传入的时间实体对应 Javascript Date 对象，前提是能根据实体计算出来。
+
+  当我们验证并储存了我们的实体，我们下一步将决定我们是否需要提示用户为闹钟命名。如果 LUIS 已经传递给我们标题，我们便能跳过提示，直接用 next() 函数执行瀑布流的下一步。否则我们能用内置的 [Prompts.text()](https://docs.botframework.com/en-us/node/builder/chat/prompts/#promptstext) 提示函数来向用户询问标题。如果用户输入了一个标题，它就会通过 results.response 字段传送到下一步，使得瀑布流的下一步中我们能储存下用户的回复，然后找出是否有另一段缺失的信息或直接调到下一步或再次提示。这一系列操作将会持续到要么我们收集完了所有需要的实体，要么用户取消了任务。
+
+  内置的提示全都支持用户通过说“取消(cancel)”或“算了(nevermind)”来取消提示。但你可以决定这意味着取消当前这一步还是取消整个任务。
+
+  在 delete_alarm 意图处理器中我们有类似的瀑布流。这个比起之前稍微简单些，因为它需要的只有标题，但这个瀑布流演示了 Bot Builder 的两个非常强大的功能。你可以用 [EntityRecognizer.findBestMatch()](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/#matching-list-items) 函数来比较用户的言论和选项列表，也可以用 [Prompts.choice()](https://docs.botframework.com/en-us/node/builder/chat/prompts/#promptschoice) 函数来展示用户可供选择的选项的列表。两者都十分灵活而且支持选项的模糊匹配。
+
+  最终，我们添加了一个 '/notify' 对话来在他们的闹钟触发时提醒用户。我们简易的闹钟安排器通过调用 [cortanaBot.beginDialog()](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.textbot.html#begindialog) 触发这个推送通知具体说明用户联系的地址和要开始的对话的名称。alarm.from 和 alarm.to 并不与我们的简单的基于 [TextBox](https://docs.botframework.com/en-us/node/builder/bots/TextBot/) 的机器人有关，但在现实的机器人中，你需要用相关的完整的友好的信息使用户明确你将要开始的对话的内容。（译注：此句存疑）
+
+  机器人提起的的对话的标注中，最重要的是，它们是完整的对话，这意味着用户可以回复机器人的信息，并且这些回复会发回给对话。这是非常强大的功能，因为这意味着你能通知用户他们的闹钟触发了，他们也能回复你的机器人“关掉它”。
+
+  如果我们再次运行我们的机器人，我们能得到类似的输出：
+  ```
+  node app.js
+  set an alarm in 5 minutes called wakeup
+  Creating alarm named 'wakeup' for 3/24/2016 9:05am
+  snooze the wakeup alarm
+  I'm sorry I didn't understand. I can only create & delete alarms.
+  delete the wakeup alarm
+  Deleting Alarm
+  ```

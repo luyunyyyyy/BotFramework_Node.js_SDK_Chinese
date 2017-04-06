@@ -8,7 +8,7 @@
 ## Guides
 
 * [核心概念 \(80%\)](guides/core-concepts.md)
-* [自然语言理解 \(75%\)](guides/understanding-natural-language.md)
+* [自然语言理解 \(100%\)](guides/understanding-natural-language.md)
 * 使用VSCode进行本地调试 \(0%\)
 * 部署到Azure \(0%\)
 * [示例 \(0%\)](guides/examples.md)
