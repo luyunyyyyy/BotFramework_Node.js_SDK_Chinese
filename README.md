@@ -2,6 +2,8 @@
 
 为帮助大家学习微软的BotFramework，我们决定将Bot Framework的文档翻译成中文，帮助大家学习Bot Framework的使用。
 
+文档原文地址：docs.botframework.com
+
 但是，我们能力尚浅，水平有限。所以，若翻译中有不正确或者不妥当的地方，望大家包涵，并反馈。
 
 也欢迎大家加入到我们的文档翻译活动中。
