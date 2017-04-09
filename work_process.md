@@ -37,7 +37,7 @@ $ git checkout -b xia_UniversalBot_01
 
 
 2. 在自己的分支上进行翻译。中间可以同步上去。
-完成一部分之后进行一次commit
+完成了一部分之后进行一次commit
 
 
 
