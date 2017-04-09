@@ -9,6 +9,10 @@
 临时负责人：夏浩耘  xiahaoyun#outlook.com  (请将'#'换成'@')
 交流QQ群：230484919
 
+[git及markdown参考资料](tranlation_guide.md)
+[翻译工作流程](work_process.md)
+
+
 ## 进度 ##
 ### Overview
 
@@ -17,11 +21,11 @@
 
 ### Guides
 
-* [核心概念 \(80%\)](guides/core-concepts.md)
-* [自然语言理解 \(100%\)](guides/understanding-natural-language.md)
-* [使用VSCode进行本地调试 \(100%\)](guides/debug-locally-with-vscode.md)
-* [部署到Azure \(0%\)]()
-* [示例 \(100%\)](guides/examples.md)
+* [核心概念 \(80%\)-夏浩耘](guides/core-concepts.md)
+* [自然语言理解 \(100%\)-谢俊琨](guides/understanding-natural-language.md)
+* [使用VSCode进行本地调试 \(100%\)-谢俊琨](guides/debug-locally-with-vscode.md)
+* [部署到Azure \(0%\)-夏浩耘]()
+* [示例 \(100%\)-谢俊琨](guides/examples.md)
 
 ### Chat bot
 * [UniversalBot \(0%\)]()
