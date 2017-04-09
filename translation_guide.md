@@ -7,6 +7,9 @@
 2. 掌握基础的git使用
 3. 掌握基本的markdown语法
 
+本项目的github地址：
+https://github.com/NEUMSC/BotFramework_Node.js_SDK_Chinese
+
 
 ## 2. 基础的git的使用
 
