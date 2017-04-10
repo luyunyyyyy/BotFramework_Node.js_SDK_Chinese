@@ -13,7 +13,7 @@
 
 [git及markdown参考资料](translation_guide.md)
 
-[翻译工作流程](work_process.md)
+[翻译工作流程](work_process_3.md)
 
 
 
