@@ -27,10 +27,10 @@ https://github.com/xiahaoyun/BotFramework_Node.js_SDK_Chinese
 
 首先要从github上下载代码到本地，你需要执行如下命令：
 
-    ```
+```
     git clone https://github.com/xiahaoyun/BotFramework_Node.js_SDK_Chinese.git 
     cd BotFramework_Node.js_SDK_Chinese
-    ```
+```
 
 然后代码到本地里了，你就可以各种修改  add commit 了
 
