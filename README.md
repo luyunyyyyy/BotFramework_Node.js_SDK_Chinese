@@ -21,7 +21,8 @@
 ### Overview
 
 * [README](README.md)
-* [快速入门](overiew/getting-started.md)
+* [快速入门](overview/getting-started.md)
+             
 
 ### Guides
 
