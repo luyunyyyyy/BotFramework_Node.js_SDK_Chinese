@@ -78,12 +78,14 @@ xx是你更改的文件的文件名，也可以用一个`.`来代表所有更改
  这时候的你对你的翻译部分肯定没问题，但是pull request 就有可以会出错，因为你fork的repo和现在的NEUMSC的repo已经不一样了。
  这时候理论上管理员会close你的request，让你先pull 文档翻译 的最新部分。
  于是乎
+ ```
     git remote add neumsc https://github.com/NEUMSC/BotFramework_Node.js_SDK_Chinese.git
     git fetch neumsc master
-    
+ ```
 自己merge代码 不和谐的地方，这里肯定不能git pull,会提示conflict 即代码是需要自己merge的
+```
     git merge neumsc/master
-    
+```    
     你修改代码后
     
     git add 
@@ -95,8 +97,9 @@ xx是你更改的文件的文件名，也可以用一个`.`来代表所有更改
 你就会发现原先的出错不见了，变成了**everything update   **
     
 你就可以提交到自己的远程版本库了。
+```
     git push origin master
-    
+```   
 之后你再pull request，NEUMSC那边就木有出现 不能 auto merge的情况了，然后管理员就merge你的代码到他的主分支去了。
 功德圆满 ：）
 
