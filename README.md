@@ -13,7 +13,7 @@
 
 [git及markdown参考资料](translation_guide.md)
 
-[翻译工作流程](work_process.md)
+[翻译工作流程](work_process_3.md)
 
 
 
@@ -21,14 +21,15 @@
 ### Overview
 
 * [README](README.md)
-* [快速入门](overiew/getting-started.md)
+* [快速入门](overview/getting-started.md)
+             
 
 ### Guides
 
 * [核心概念 \(80%\)-夏浩耘](guides/core-concepts.md)
 * [自然语言理解 \(100%\)-谢俊琨](guides/understanding-natural-language.md)
 * [使用VSCode进行本地调试 \(100%\)-谢俊琨](guides/debug-locally-with-vscode.md)
-* [部署到Azure \(0%\)-夏浩耘]()
+* [部署到Azure \(50%\)-夏浩耘]()
 * [示例 \(100%\)-谢俊琨](guides/examples.md)
 
 ### Chat bot
