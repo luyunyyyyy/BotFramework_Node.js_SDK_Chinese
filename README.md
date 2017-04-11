@@ -15,6 +15,10 @@
 
 [翻译工作流程](work_process_3.md)
 
+[中文技术文档的写作规范-阮一峰](https://github.com/ruanyf/document-style-guide)
+
+建议尽量遵循写作规范。
+
 
 
 ## 进度 ##
