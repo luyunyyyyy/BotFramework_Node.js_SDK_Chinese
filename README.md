@@ -33,7 +33,7 @@
 * [核心概念 \(95%\)-夏浩耘](guides/core-concepts.md)
 * [自然语言理解 \(100%\)-谢俊琨](guides/understanding-natural-language.md)
 * [使用VSCode进行本地调试 \(100%\)-谢俊琨](guides/debug-locally-with-vscode.md)
-* [部署到Azure \(50%\)-夏浩耘]()
+* [部署到Azure \(95%\)-夏浩耘](guides/deploying-to-azure.md)
 * [示例 \(100%\)-谢俊琨](guides/examples.md)
 
 ### Chat bot
