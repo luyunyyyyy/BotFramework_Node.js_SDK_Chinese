@@ -77,7 +77,8 @@ bot.dialog('/', function (session) {
    * Reactive Messages
    是指机器人用以回复从用户那收到的信息的一类信息。 这是一类最常见的信息传递模式，可以使用session.send()方法实现。
    * Proactive Messages
-   是一类机器人用以回应某些外部事件的信息，就像timer firing或一个被触发的通知。这类信息的应用有：比如告知你项目已经装运，或者提醒你有一个关于团队成员状态的日常调查。
+
+是一类机器人用以回应某些外部事件的信息，就像timer firing或一个被触发的通知。这类信息的应用有：比如告知你项目已经装运，或者提醒你有一个关于团队成员状态的日常调查。
 
   ## 存储用户地址
    UniversalBot类提供 bot.send() 和 bot.beginDialog() 两种方法来与用户积极的交流。在你使用任意一种方法之前，你需要将用户的地址存下来。你可以通过序列session.message.address属性到你将会用到的字符串上：
@@ -108,7 +109,8 @@ bot.dialog('/', function (session) {
     bot.send(msg, function (err) {
         // Return success/failure
         res.status(err ? 500 : 200);
-        res.end();    });}); ``` 
+        res.end();    });}); 
+ ``` 
    在web hook中，可以将之前存下来的用户的address反序列化。然后呢，程序将会合成信息，并使用bot.send()发送出去。我们可以选择提供一个callback去判断信息是否成功发送。
 
    ## 开始对话
