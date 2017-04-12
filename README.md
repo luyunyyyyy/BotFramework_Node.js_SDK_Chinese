@@ -40,7 +40,7 @@
 * [UniversalBot \(0%\)-王卓航]()
 * [Dialogs \(0%\)-邵秋然]()
 * [Sesion \(0%\)]()
-* [Prompts \(0%\)]()
+* [提示符 \(0%\)-牛骋]()
 * [IntentDialog \(0%\)]()
 * [Localization \(0%\)]()
 ### Calling Bots
