@@ -24,7 +24,6 @@
 ```
  var restify = require('restify');
 var builder = require('botbuilder');
-
 //=========================================================
 // Bot Setup
 //=========================================================
@@ -57,7 +56,7 @@ bot.dialog('/', function (session) {
 
   # ConsoleConnector
    控制台连接器使得机器人能通过控制台窗口与人交互。这种连接器在你需要快速测试或者在Mac上测试时（即当你不能方便的运行模拟器的情况下）十分有用。以下是一个"hello world"机器人配置使用该连接器的例子：
-  ```
+```
    var builder = require('botbuilder');
 
 var connector = new builder.ConsoleConnector().listen();
@@ -99,7 +98,8 @@ bot.dialog('/', function (session) {
   ## 发送消息
     要主动的发消息给用户，你需要添加web hook或者其他的逻辑可以触发主动通知。在下面的例子中，我们将会给机器人添加一个web hook，使得机器人能够发送一个通知消息给用户：
     
-```server.post('/api/notify', function (req, res) {
+```
+server.post('/api/notify', function (req, res) {
     // Process posted notification
     var address = JSON.parse(req.body.address);
     var notification = req.body.notification;
@@ -111,7 +111,7 @@ bot.dialog('/', function (session) {
         // Return success/failure
         res.status(err ? 500 : 200);
         res.end();    });});
-       ``` 
+``` 
    在web hook中，可以将之前存下来的用户的address反序列化。然后呢，程序将会合成信息，并使用bot.send()发送出去。我们可以选择提供一个callback去判断信息是否成功发送。
 
    ## 开始对话
