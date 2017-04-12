@@ -1,4 +1,4 @@
-#UniversalBot
+# UniversalBot
 * 回顾
 * Connectors
    * chatconnector
@@ -98,6 +98,7 @@ bot.dialog('/', function (session) {
 
   ## 发送消息
     要主动的发消息给用户，你需要添加web hook或者其他的逻辑可以触发主动通知。在下面的例子中，我们将会给机器人添加一个web hook，使得机器人能够发送一个通知消息给用户：
+    
 ``` server.post('/api/notify', function (req, res) {
     // Process posted notification
     var address = JSON.parse(req.body.address);
