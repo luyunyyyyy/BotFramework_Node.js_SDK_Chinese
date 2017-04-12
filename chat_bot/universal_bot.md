@@ -133,7 +133,7 @@ bot.beginDialog(address, '/standup', { userId: user.id, reportId: reportId });
     res.end();
 });  ```
 
-  ```bot.dialog('/standup', [
+  ``` bot.dialog('/standup', [
     function (session, args) {
         // Remember the ID of the user and status report
         session.dialogData.userId = args.userId;
