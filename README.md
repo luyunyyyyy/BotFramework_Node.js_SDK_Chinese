@@ -8,12 +8,15 @@
 
 也欢迎大家加入到我们的文档翻译活动中。
 
-临时负责人：夏浩耘  xiahaoyun#outlook.com  (请将'#'换成'@')
 交流QQ群：230484919
 
 [git及markdown参考资料](translation_guide.md)
 
-[翻译工作流程](work_process.md)
+[翻译工作流程](work_process_3.md)
+
+[中文技术文档的写作规范-阮一峰](https://github.com/ruanyf/document-style-guide)
+
+建议尽量遵循写作规范。
 
 
 
@@ -21,31 +24,33 @@
 ### Overview
 
 * [README](README.md)
-* [快速入门](overiew/getting-started.md)
+* [快速入门](overview/getting-started.md)
+             
 
 ### Guides
 
-* [核心概念 \(80%\)-夏浩耘](guides/core-concepts.md)
+* [核心概念 \(95%\)-夏浩耘](guides/core-concepts.md)
 * [自然语言理解 \(100%\)-谢俊琨](guides/understanding-natural-language.md)
 * [使用VSCode进行本地调试 \(100%\)-谢俊琨](guides/debug-locally-with-vscode.md)
-* [部署到Azure \(0%\)-夏浩耘]()
+* [部署到Azure \(95%\)-夏浩耘](guides/deploying-to-azure.md)
 * [示例 \(100%\)-谢俊琨](guides/examples.md)
 
 ### Chat bot
-* [UniversalBot \(100%\-王卓航)](chat_bot/universal_bot.md)
-* [Dialogs \(0%\)]()
-* [Sesion \(0%\)]()
-* [Prompts \(0%\)]()
-* [IntentDialog \(0%\)]()
-* [Localization \(0%\)]()
+
+* [UniversalBot \(0%\)-王卓航](chatBots/universal-bot.md)
+* [Dialogs \(0%\)-邵秋然](chatBots/.md)
+* [Sesion \(0%\)](chatBots/dialogs.md)
+* [Prompts \(0%\)-牛骋](chatBots/prompts.md)
+* [IntentDialog \(0%\)](chatBots/intent-dialog.md)
+* [Localization \(0%\)](chatBots/localization.md)
+
 ### Calling Bots
-* [UniversalBot \(0%\)]()
-* [Prompts \(0%\)]()
+* [UniversalBot \(100%\)-王金龙](callingBots/univeral-call-bot.md)
+* [Prompts \(0%\)](callingBots/promts.md)
 
 ### Libraries
-* [Chat Reference \(0%\)]()
-* [Calling Reference \(0%\)]()
-* [SDK on Github \(0%\)]()
-* [Release Note \(0%\)]()
+* [Chat Reference \(0%\)](libraries/chat-reference.md)
+* [Calling Reference \(0%\)](libraries/calling-reference.md)
+* [SDK on Github \(0%\)](libraries/SDK-on-github.md)
+* [Release Note \(0%\)](libraries/release-note.md)
 
----
