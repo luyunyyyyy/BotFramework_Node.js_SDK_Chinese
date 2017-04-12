@@ -71,6 +71,7 @@ bot.dialog('/', function (session) {
    >  --debug-brk app.js
    节点的命令开始，然后你再使用附加模式开启调试器。
 
+
   # Provactive Messging
    SDK支持两种信息传递模式。
    * Reactive Messages
