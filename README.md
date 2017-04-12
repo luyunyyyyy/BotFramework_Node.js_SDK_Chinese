@@ -8,7 +8,6 @@
 
 也欢迎大家加入到我们的文档翻译活动中。
 
-临时负责人：夏浩耘  xiahaoyun#outlook.com  (请将'#'换成'@')
 交流QQ群：230484919
 
 [git及markdown参考资料](translation_guide.md)
