@@ -67,7 +67,7 @@ bot.dialog('/', function (session) {
    session.send('Hello World'); 
 }); 
 ```
- 
+  
    如果你是使用VSCode进行debug，那么你要对你的机器人以类似    
    >  --debug-brk app.js
    节点的命令开始，然后你再使用附加模式开启调试器。
@@ -92,8 +92,8 @@ bot.dialog('/', function (session) {
         var reply = err ? 'unable to create subscription.' : 'subscription created';
         session.endDialog(reply);
     }); 
-  }); 
-  ```
+  });   ```
+
    你不应该假设给用户的address对象总会是有效的。特别是由ChatConnector返回的Address包含一个servicelUrl属性,理论上会改变和防止机器人接触用户。因此，你应该考虑定期更新为用户存储的地址对象。
 
   ## 发送消息
@@ -112,12 +112,11 @@ bot.dialog('/', function (session) {
         // Return success/failure
         res.status(err ? 500 : 200);
         res.end();
-    });});
-``` 
+    });}); ``` 
    在web hook中，可以将之前存下来的用户的address反序列化。然后呢，程序将会合成信息，并使用bot.send()发送出去。我们可以选择提供一个callback去判断信息是否成功发送。
 
   ## 开始对话
-   除了主动发送信息，我们可以使用bot.beginbialog()去开始一个新对话。bot.sen()和bot.beginDialog()是十分微妙的。使用bot.send()不会影响机器人和用户之间存在的任何一个对话，所以使用起来比较安全。而使用bot.beginDialog()会结束即存对话，并且在这个指定的对话框中开始一段新的对话。一般来说，如果对话不需要用户的回复，我们应该使用bot.send()，否则就使用bot.beginDialog()。
+    除了主动发送信息，我们可以使用bot.beginbialog()去开始一个新对话。bot.sen()和bot.beginDialog()是十分微妙的。使用bot.send()不会影响机器人和用户之间存在的任何一个对话，所以使用起来比较安全。而使用bot.beginDialog()会结束即存对话，并且在这个指定的对话框中开始一段新的对话。一般来说，如果对话不需要用户的回复，我们应该使用bot.send()，否则就使用bot.beginDialog()。
    开始主动对话和发送主动对话很相似。以下例子我们将使用web hook引起一段面向多个团队成员的standup对话。在web hook中我们仅遍历完所有的成员，并调用能带有每个成员地址的bot.beginDialog()。机器人将询问成员的状态，并将他们的状态放进a dailt status report：
 
      ``` server.post('/api/standup', function (req, res) {
@@ -132,9 +131,9 @@ bot.beginDialog(address, '/standup', { userId: user.id, reportId: reportId });
     }
     res.status(200);
     res.end();
-});
+});  ```
 
-bot.dialog('/standup', [
+  ```bot.dialog('/standup', [
     function (session, args) {
         // Remember the ID of the user and status report
         session.dialogData.userId = args.userId;
@@ -162,6 +161,7 @@ bot.dialog('/standup', [
 
 ## Proactive Messaging 和本地化
   对于那些支持多种语言的机器人，你需要使用bot.beginDialog()与用户对话。只是因为用户的首选区域设置将会作为对话对象的一部分，仅在当前对话框可用。我们最开始的通知例子可以使用bot.beginDialog()而非bot.send()来轻松地更新：
+  
      ```server.post('/api/notify', function (req, res) {
     // Process posted notification
     var address = JSON.parse(req.body.address);
