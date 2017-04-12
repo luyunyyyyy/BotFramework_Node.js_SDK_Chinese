@@ -38,7 +38,7 @@
 
 ### Chat bot
 * [UniversalBot \(0%\)-王卓航]()
-* [Dialogs \(0%\)]()
+* [Dialogs \(0%\)-邵秋然]()
 * [Sesion \(0%\)]()
 * [Prompts \(0%\)]()
 * [IntentDialog \(0%\)]()
