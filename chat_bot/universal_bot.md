@@ -113,8 +113,7 @@ server.post('/api/notify', function (req, res) {
         // Return success/failure
         res.status(err ? 500 : 200);
         res.end();
-    });
-});
+    });});
 ``` 
    在web hook中，可以将之前存下来的用户的address反序列化。然后呢，程序将会合成信息，并使用bot.send()发送出去。我们可以选择提供一个callback去判断信息是否成功发送。
 
@@ -181,6 +180,6 @@ bot.dialog('/standup', [
 bot.dialog('/notify', function (session, args) {
     // Deliver notification to the user.
     session.endDialog(args.msgId, args.params);
-});
-     ```
+});  
+```
 现在，可以通过the SDK’s built-in localization support来发送用户首选的语言类型的信息。使用bot.beginDiaolog()相比之下的一个缺点是：在当前对话前任意一个人机对话都将在发送用户消息前结束。对于只支持一种语言机器人，bot.send()还是首选。
