@@ -37,7 +37,7 @@
 
 ### Chat bot
 
-* [UniversalBot \(0%\)-王卓航](chatBots/universal-bot.md)
+* [UniversalBot \(100%\)-王卓航](chatBots/universal-bot.md)
 * [Dialogs \(0%\)-邵秋然](chatBots/.md)
 * [Sesion \(0%\)](chatBots/dialogs.md)
 * [Prompts \(0%\)-牛骋](chatBots/prompts.md)
