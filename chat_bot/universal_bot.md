@@ -84,7 +84,6 @@ bot.dialog('/', function (session) {
   ``` bot.dialog('/createSubscription', function (session, args) {
     // Serialize users address to a string.
     var address = JSON.stringify(session.message.address);
-
     // Save subscription with address to storage.
     session.sendTyping();
     createSubscription(args.userId, address, function (err) {
@@ -95,7 +94,6 @@ bot.dialog('/', function (session) {
   });   ```
 
    你不应该假设给用户的address对象总会是有效的。特别是由ChatConnector返回的Address包含一个servicelUrl属性,理论上会改变和防止机器人接触用户。因此，你应该考虑定期更新为用户存储的地址对象。
-
   ## 发送消息
     要主动的发消息给用户，你需要添加web hook或者其他的逻辑可以触发主动通知。在下面的例子中，我们将会给机器人添加一个web hook，使得机器人能够发送一个通知消息给用户：
     
@@ -105,14 +103,12 @@ bot.dialog('/', function (session) {
     var notification = req.body.notification;
 
     // Send notification as a proactive message
-    var msg = new builder.Message()
-        .address(address)
+    var msg = new builder.Message()        .address(address)
         .text(notification);
     bot.send(msg, function (err) {
         // Return success/failure
         res.status(err ? 500 : 200);
-        res.end();
-    });}); ``` 
+        res.end();    });}); ``` 
    在web hook中，可以将之前存下来的用户的address反序列化。然后呢，程序将会合成信息，并使用bot.send()发送出去。我们可以选择提供一个callback去判断信息是否成功发送。
 
    ## 开始对话
@@ -131,9 +127,9 @@ bot.beginDialog(address, '/standup', { userId: user.id, reportId: reportId });
     }
     res.status(200);
     res.end();
-});  ```
+});  
 
-  ``` bot.dialog('/standup', [
+   bot.dialog('/standup', [
     function (session, args) {
         // Remember the ID of the user and status report
         session.dialogData.userId = args.userId;
