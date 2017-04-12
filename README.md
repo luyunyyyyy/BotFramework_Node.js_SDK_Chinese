@@ -41,7 +41,7 @@
 * [UniversalBot \(0%\)-王卓航](chatBots/universal-bot.md)
 * [Dialogs \(0%\)-邵秋然](chatBots/.md)
 * [Sesion \(0%\)](chatBots/dialogs.md)
-* [Prompts \(0%\)](chatBots/prompts.md)
+* [Prompts \(0%\)-牛骋](chatBots/prompts.md)
 * [IntentDialog \(0%\)](chatBots/intent-dialog.md)
 * [Localization \(0%\)](chatBots/localization.md)
 
