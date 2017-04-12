@@ -81,8 +81,7 @@ bot.dialog('/', function (session) {
 
   ## 存储用户地址
    UniversalBot类提供 bot.send() 和 bot.beginDialog() 两种方法来与用户积极的交流。在你使用任意一种方法之前，你需要将用户的地址存下来。你可以通过序列session.message.address属性到你将会用到的字符串上：
-  ```
- bot.dialog('/createSubscription', function (session, args) {
+  ``` bot.dialog('/createSubscription', function (session, args) {
     // Serialize users address to a string.
     var address = JSON.stringify(session.message.address);
 
@@ -99,8 +98,7 @@ bot.dialog('/', function (session) {
 
   ## 发送消息
     要主动的发消息给用户，你需要添加web hook或者其他的逻辑可以触发主动通知。在下面的例子中，我们将会给机器人添加一个web hook，使得机器人能够发送一个通知消息给用户：
-``` 
-server.post('/api/notify', function (req, res) {
+``` server.post('/api/notify', function (req, res) {
     // Process posted notification
     var address = JSON.parse(req.body.address);
     var notification = req.body.notification;
@@ -124,8 +122,7 @@ server.post('/api/notify', function (req, res) {
      ``` server.post('/api/standup', function (req, res) {
     // Get list of team members to run a standup with.
     var members = req.body.members;
-    var reportId = req.body.reportId;
-    for (var i = 0; i < members.length; i++) {
+    var reportId = req.body.reportId;    for (var i = 0; i < members.length; i++) {
         // Start standup for the specified team member
         var user = members[i];
         var address = JSON.parse(user.address);
@@ -160,13 +157,11 @@ bot.dialog('/standup', [
             }
         });
     }
-]);
-   ```
+]); ```
 
 ## Proactive Messaging 和本地化
   对于那些支持多种语言的机器人，你需要使用bot.beginDialog()与用户对话。只是因为用户的首选区域设置将会作为对话对象的一部分，仅在当前对话框可用。我们最开始的通知例子可以使用bot.beginDialog()而非bot.send()来轻松地更新：
-     ```
-     server.post('/api/notify', function (req, res) {
+     ```server.post('/api/notify', function (req, res) {
     // Process posted notification
     var address = JSON.parse(req.body.address);
     var notification = req.body.notification;
