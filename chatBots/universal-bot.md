@@ -10,7 +10,7 @@
    * Proactive Messaging 和本地化
     
 # Overview
-  UniversalBot类是机器人的大脑。它负责管理机器人与用户的所有对话。在初始化机器人的时候，连接器会将你的机器人与Bot Framework或者与控制台连接。接下来，你就可以为你的机器人配置上拥有实现真实的对话的逻辑啦~~\(≧▽≦)/~
+  [UniversalBot](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.universalbot.html)类是机器人的大脑。它负责管理机器人与用户的所有对话。在初始化机器人的时候，连接器会将你的机器人与Bot Framework或者与控制台连接。接下来，你就可以为你的机器人配置上拥有实现真实的对话的逻辑啦~~\(≧▽≦)/~
 
 > 小贴士 (⊙v⊙)：
 > 对于那些Bot Builder v1.x的用户， the BotConnectorBot, TextBot, and SkypeBot类已经过时啦~
@@ -21,7 +21,7 @@
  UniversalBot 支持一种可拓展的connector系统，可以让你的机器人实现接收信息&事件以及各种消息来源。创造性地，Bot Builder 包括了一个能连接到Bot Framework的ChatConnector以及一个用于与console window的bot交互的ConsoleConnector.
 ## ChatConnector
  ChatConnector 使得UniversalBot能与模拟器或者任意一个由BotFramework支持的channels交流。以下是一个配置了ChatConnector的“hello world”机器人：
-```
+```javascript
  var restify = require('restify');
 var builder = require('botbuilder');
 //=========================================================
@@ -56,7 +56,7 @@ bot.dialog('/', function (session) {
 
   # ConsoleConnector
    控制台连接器使得机器人能通过控制台窗口与人交互。这种连接器在你需要快速测试或者在Mac上测试时（即当你不能方便的运行模拟器的情况下）十分有用。以下是一个"hello world"机器人配置使用该连接器的例子：
-```
+```javascript
    var builder = require('botbuilder');
 
 var connector = new builder.ConsoleConnector().listen();
@@ -66,9 +66,7 @@ bot.dialog('/', function (session) {
 }); 
 ```
   
-   如果你是使用VSCode进行debug，那么你要对你的机器人以类似    
-   >  --debug-brk app.js
-   节点的命令开始，然后你再使用附加模式开启调试器。
+如果你是使用VSCode进行debug，那么你要对你的机器人以类似   `--debug-brk app.js`节点的命令开始，然后你再使用附加模式开启调试器。
 
 
   # Provactive Messging
@@ -80,8 +78,9 @@ bot.dialog('/', function (session) {
 是一类机器人用以回应某些外部事件的信息，就像timer firing或一个被触发的通知。这类信息的应用有：比如告知你项目已经装运，或者提醒你有一个关于团队成员状态的日常调查。
 
   ## 存储用户地址
-   UniversalBot类提供 bot.send() 和 bot.beginDialog() 两种方法来与用户积极的交流。在你使用任意一种方法之前，你需要将用户的地址存下来。你可以通过序列session.message.address属性到你将会用到的字符串上：
-```
+UniversalBot类提供 bot.send() 和 bot.beginDialog() 两种方法来与用户积极的交流。在你使用任意一种方法之前，你需要将用户的地址存下来。你可以通过序列session.message.address属性到你将会用到的字符串上：
+
+```JavaScript 
   bot.dialog('/createSubscription', function (session, args) {
     // Serialize users address to a string.
     var address = JSON.stringify(session.message.address);
@@ -96,9 +95,10 @@ bot.dialog('/', function (session) {
 ```
    你不应该假设给用户的address对象总会是有效的。特别是由ChatConnector返回的Address包含一个servicelUrl属性,理论上会改变和防止机器人接触用户。因此，你应该考虑定期更新为用户存储的地址对象。
   ## 发送消息
-    要主动的发消息给用户，你需要添加web hook或者其他的逻辑可以触发主动通知。在下面的例子中，我们将会给机器人添加一个web hook，使得机器人能够发送一个通知消息给用户：
+
+要主动的发消息给用户，你需要添加web hook或者其他的逻辑可以触发主动通知。在下面的例子中，我们将会给机器人添加一个web hook，使得机器人能够发送一个通知消息给用户：
     
-```
+```JavaScript 
 server.post('/api/notify', function (req, res) {
     // Process posted notification
     var address = JSON.parse(req.body.address);
@@ -115,9 +115,10 @@ server.post('/api/notify', function (req, res) {
    在web hook中，可以将之前存下来的用户的address反序列化。然后呢，程序将会合成信息，并使用bot.send()发送出去。我们可以选择提供一个callback去判断信息是否成功发送。
 
    ## 开始对话
-    除了主动发送信息，我们可以使用bot.beginbialog()去开始一个新对话。bot.sen()和bot.beginDialog()是十分微妙的。使用bot.send()不会影响机器人和用户之间存在的任何一个对话，所以使用起来比较安全。而使用bot.beginDialog()会结束即存对话，并且在这个指定的对话框中开始一段新的对话。一般来说，如果对话不需要用户的回复，我们应该使用bot.send()，否则就使用bot.beginDialog()。
-   开始主动对话和发送主动对话很相似。以下例子我们将使用web hook引起一段面向多个团队成员的standup对话。在web hook中我们仅遍历完所有的成员，并调用能带有每个成员地址的bot.beginDialog()。机器人将询问成员的状态，并将他们的状态放进a dailt status report：
-```
+除了主动发送信息，我们可以使用bot.beginbialog()去开始一个新对话。bot.sen()和bot.beginDialog()是十分微妙的。使用bot.send()不会影响机器人和用户之间存在的任何一个对话，所以使用起来比较安全。而使用bot.beginDialog()会结束即存对话，并且在这个指定的对话框中开始一段新的对话。一般来说，如果对话不需要用户的回复，我们应该使用bot.send()，否则就使用bot.beginDialog()。
+
+开始主动对话和发送主动对话很相似。以下例子我们将使用web hook引起一段面向多个团队成员的standup对话。在web hook中我们仅遍历完所有的成员，并调用能带有每个成员地址的bot.beginDialog()。机器人将询问成员的状态，并将他们的状态放进a dailt status report：
+```JavaScript
      server.post('/api/standup', function (req, res) {
     // Get list of team members to run a standup with.
     var members = req.body.members;
@@ -163,7 +164,7 @@ res.end();
 ## Proactive Messaging 和本地化
   对于那些支持多种语言的机器人，你需要使用bot.beginDialog()与用户对话。只是因为用户的首选区域设置将会作为对话对象的一部分，仅在当前对话框可用。我们最开始的通知例子可以使用bot.beginDialog()而非bot.send()来轻松地更新：
   
-``` 
+```JavaScript 
  server.post('/api/notify', function (req, res) {
     // Process posted notification
     var address = JSON.parse(req.body.address);
