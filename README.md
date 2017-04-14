@@ -42,7 +42,7 @@
 * [Sesion \(0%\)](chatBots/dialogs.md)
 * [Prompts \(0%\)-牛骋](chatBots/prompts.md)
 * [IntentDialog \(0%\)-张悦](chatBots/intent-dialog.md)
-* [Localization \(0%\)](chatBots/localization.md)
+* [Localization \(0%\)-夏浩耘](chatBots/localization.md)
 
 ### Calling Bots
 * [UniversalBot \(100%\)-王金龙](callingBots/univeral-call-bot.md)
