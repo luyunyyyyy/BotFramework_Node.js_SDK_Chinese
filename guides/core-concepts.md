@@ -14,11 +14,11 @@ Bot Builder是一个用node.js来构建会话程序（Bots）的框架。它提�
 ## 安装 ##
 想要上手，你可以选择通过 NPM来安装Bot Builder 模块
 
-也可以使用git从我们的GitHub 代码仓库clone。这种方法可能会比用 NPM好一点，因为它可以给你提供丰富的实例代码段和bot。
+也可以使用git从我们的GitHub 代码仓库clone。这种方法可能会比用 NPM好一点，因为它可以给你提供丰富的示例代码和bot。
 
 
 ## Hello World ##
-一但Bot Builder模块安装完成，我们就可以开始构建我们的第一个叫做HelloBot的"Hello World" bot。我们首先要决定的是我们想要构建哪一类bot。Bot Builder使你能为各种平台构建bot。但是对于我们将要构建的HelloBot，我们只需要通过命令行来与之交互，所以我们将建立一个绑定了一个控制台连接器（ConsoleConnector）实例的通用bot（UniversalBot）。
+当Bot Builder模块安装完成之后，我们就可以开始构建我们的第一个 bot——HelloBot 。我们首先要决定的是我们想要构建哪一类 bot 。Bot Builder 使你能为各种平台构建bot。但是对于我们将要构建的 HelloBot ，我们只需要通过命令行来与之交互，所以我们将建立一个绑定了一个 ConsoleConnector （控制台连接器）实例的UniversalBot (通用 bot )。
 
 ```javascript
 var builder = require('botbuilder');
@@ -26,7 +26,7 @@ var builder = require('botbuilder');
 var connector = new builder.ConsoleConnector().listen();
 var bot = new builder.UniversalBot(connector);
 ```
-通用bot类实现了管理bot与用户的对话所需的全部逻辑。你可以使用连机器来把bot绑定到各种各样的频道。对于这个教程，我们将只需要通过命令行窗口来和bot交谈，所以，我们使用ConsoleConnector 类。将来，当你准备把你的bot部署到真实的频道，你将用ChatConnector来换掉ConsoleConnector，你将用你从Bot Framework管理界面获取到的你的bot的APP ID和Password来配置这个ChatConnector。
+UniversalBot 类实现了管理 bot 与用户的对话所需的全部逻辑。你可以使用连机器来把bot绑定到各种各样的频道。对于这个教程，我们将只需要通过命令行窗口来和 bot 交谈，所以，我们使用 ConsoleConnector 类。将来，当你准备把你的bot部署到真实的频道，你将用ChatConnector来换掉ConsoleConnector，你将用你从Bot Framework管理界面获取到的你的bot的APP ID和Password来配置这个ChatConnector。
 
 现在，我们建立了我们的bot和connector，我们需要给我们新建的bot对象添加一个对话。Botbuider将对话应用切分成叫做对话的组件。如果你想以构建一个web 应用的思路来构建一个会话应用，每个会话可以被认为是会话应用中的路由。当用户给你的bot发送一条消息的时候，框架将会追踪当前激活的是哪个会话，并自动地把收到的消息路由给激活的会话。对于我们的HelloBot，我们只需要添加单一的根(root)"/"会话来用"Hello World"来响应所有的消息。
 
@@ -249,6 +249,7 @@ bot.dialog('/profile', [
     }
 ]);
  ```
+ ```json
  {
     "version": "0.2.0",
     "configurations": [
@@ -274,6 +275,7 @@ bot.dialog('/profile', [
             "sourceMaps": false,
             "outDir": null
         },  
+```
 我们现在更新过的 Bot 需要使用[Restify](http://restify.com/),所以我们需要安装一下。在我们的bot所在目录里面打开命令行，输入：
 
 ```
