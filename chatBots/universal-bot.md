@@ -118,7 +118,8 @@ server.post('/api/notify', function (req, res) {
 除了主动发送信息，我们可以使用bot.beginbialog()去开始一个新对话。bot.sen()和bot.beginDialog()是十分微妙的。使用bot.send()不会影响机器人和用户之间存在的任何一个对话，所以使用起来比较安全。而使用bot.beginDialog()会结束即存对话，并且在这个指定的对话框中开始一段新的对话。一般来说，如果对话不需要用户的回复，我们应该使用bot.send()，否则就使用bot.beginDialog()。
 
 开始主动对话和发送主动对话很相似。以下例子我们将使用web hook引起一段面向多个团队成员的standup对话。在web hook中我们仅遍历完所有的成员，并调用能带有每个成员地址的bot.beginDialog()。机器人将询问成员的状态，并将他们的状态放进a dailt status report：
-```JavaScript
+
+```javascript
      server.post('/api/standup', function (req, res) {
     // Get list of team members to run a standup with.
     var members = req.body.members;
@@ -164,7 +165,7 @@ res.end();
 ## Proactive Messaging 和本地化
   对于那些支持多种语言的机器人，你需要使用bot.beginDialog()与用户对话。只是因为用户的首选区域设置将会作为对话对象的一部分，仅在当前对话框可用。我们最开始的通知例子可以使用bot.beginDialog()而非bot.send()来轻松地更新：
   
-```JavaScript 
+```javascript 
  server.post('/api/notify', function (req, res) {
     // Process posted notification
     var address = JSON.parse(req.body.address);
