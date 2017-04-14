@@ -80,7 +80,7 @@ bot.dialog('/', function (session) {
   ## 存储用户地址
 UniversalBot类提供 bot.send() 和 bot.beginDialog() 两种方法来与用户积极的交流。在你使用任意一种方法之前，你需要将用户的地址存下来。你可以通过序列session.message.address属性到你将会用到的字符串上：
 
-```JavaScript 
+```javascript 
   bot.dialog('/createSubscription', function (session, args) {
     // Serialize users address to a string.
     var address = JSON.stringify(session.message.address);
@@ -98,7 +98,7 @@ UniversalBot类提供 bot.send() 和 bot.beginDialog() 两种方法来与用户�
 
 要主动的发消息给用户，你需要添加web hook或者其他的逻辑可以触发主动通知。在下面的例子中，我们将会给机器人添加一个web hook，使得机器人能够发送一个通知消息给用户：
     
-```JavaScript 
+```javascript 
 server.post('/api/notify', function (req, res) {
     // Process posted notification
     var address = JSON.parse(req.body.address);
