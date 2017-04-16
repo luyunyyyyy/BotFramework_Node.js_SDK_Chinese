@@ -41,7 +41,7 @@
 * [Dialogs \(0%\)-邵秋然](chatBots/.md)
 * [Sesion \(0%\)-陆云阳](chatBots/dialogs.md)
 * [Prompts \(0%\)-牛骋](chatBots/prompts.md)
-* [IntentDialog \(0%\)-张悦](chatBots/intent-dialog.md)
+* [IntentDialog \(100%\)-张悦](chatBots/intent-dialog.md)
 * [Localization \(0%\)-夏浩耘](chatBots/localization.md)
 
 ### Calling Bots
