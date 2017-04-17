@@ -9,16 +9,16 @@
  - 使用ngrok进行本地调试
 
 ## 概述 ##
-Bot Builder是一个用node.js来构建会话程序（Bots）的框架。它提供了所有管理一个bot的会话方面所需的全部特性，从最简单的基于命令的bot到拥有丰富的自然语言的bot。您可以轻松地将使用框架构建的机器人连接到用户，无论他们在什么地方交谈，从短信到Skype到Slack等等...
+Bot Builder 是一个用node.js来构建会话程序（Bots）的框架。它提供了所有管理一个 bot 的会话方面所需的全部特性，从最简单的基于命令的 bot 到拥有丰富的自然语言的bot。您可以轻松地将使用框架构建的机器人连接到用户，无论他们想在什么平台交谈，从短信到Skype到Slack等等...
 
 ## 安装 ##
-想要上手，你可以选择通过 NPM来安装Bot Builder 模块
+想要上手，你可以选择通过 NPM 来安装 Bot Builder 模块。
 
-也可以使用git从我们的GitHub 代码仓库clone。这种方法可能会比用 NPM好一点，因为它可以给你提供丰富的示例代码和bot。
+也可以使用 git 从我们的GitHub 代码仓库 clone 。这种方法可能会比用 NPM好一点，因为它可以给你提供丰富的示例代码和和示例 bot 。
 
 
 ## Hello World ##
-当Bot Builder模块安装完成之后，我们就可以开始构建我们的第一个 bot——HelloBot 。我们首先要决定的是我们想要构建哪一类 bot 。Bot Builder 使你能为各种平台构建bot。但是对于我们将要构建的 HelloBot ，我们只需要通过命令行来与之交互，所以我们将建立一个绑定了一个 ConsoleConnector （控制台连接器）实例的UniversalBot (通用 bot )。
+当 Bot Builder 模块安装完成之后，我们就可以开始构建我们的第一个 bot——HelloBot 。我们首先要决定的是我们想要构建哪一类 bot 。Bot Builder 使你能为各种平台构建 bot 。但是对于我们将要构建的 HelloBot ，我们只需要通过命令行来与之交互，所以我们将建立一个绑定了一个 ConsoleConnector （控制台连接器）实例的UniversalBot (通用 bot )。
 
 ```javascript
 var builder = require('botbuilder');
@@ -69,7 +69,7 @@ bot.dialog('/', [
 实际上，我们使用了一个SDK内置的（提示输入）prompts来等待用户的输入。我们使用的一个简单文本提示，它可以捕获用户当次输入的全部东西。此外，SDK还有各种各样的内置提示输入类型。如果我们运行我们更新过的HelloBot 我们可以看到我们的bot 问我们的名字，然后给我们一个个性化的问候。
 
 ## 增加会话和储存 ##
-Bot Builder使你能把你的bot与用户之间的对话分成所谓的dialogs。你可以把dialogs串到一起来形成一个与用户之间的子对话来实现一些小任务。对于HelloBot 我们将增加一个新的 /profile dialog来引导用户填写他们的档案信息。这个信息需要被储存在某个地方，以便于，一方面我们可以使用`session.endDialog({ response: { name: ‘John' } })`将它作为我们的dialog的输出值返回给调用者。另一方面，也我们也可以使用SDK内置的储存系统来全局地储存它。在我们当前的情况下，对于一个用户，我们想要将这个信息全局地记住，我们就用`session.userData`来储存。这也给我们一个方便的方法来确定用户是否曾填写过档案，以决定我们是否需要让用户填写。
+Bot Builder 使你能把你的bot与用户之间的对话分成所谓的 dialogs 。你可以把dialogs串到一起来形成一个与用户之间的子对话来实现一些小任务。对于HelloBot 我们将增加一个新的 /profile dialog来引导用户填写他们的档案信息。这个信息需要被储存在某个地方，以便于，一方面我们可以使用 `session.endDialog({ response: { name: ‘John' } })` 将它作为我们的 dialog 的输出值返回给调用者。另一方面，也我们也可以使用SDK内置的储存系统来全局地储存它。在我们当前的情况下，对于一个用户，我们想要将这个信息全局地记住，我们就用`session.userData`来储存。这也给我们一个方便的方法来确定用户是否曾填写过档案，以决定我们是否需要让用户填写。
 
 ```javascript
 var builder = require('botbuilder');
@@ -100,7 +100,7 @@ bot.dialog('/profile', [
 ]);
 ```
 
-现在，当我们运行HelloBot，他将提示我们输入我们的名字一次。然后，在下次和bot聊天的时候，它将记住我们的名字。
+现在，当我们运行HelloBot，他将提示我们输入我们的名字一次。然后，在下次和之聊天的时候，它将记住我们的名字。
 ```
 node app.js
 hello
@@ -113,9 +113,9 @@ Hello John!
 
 SDK包含以下几种方式来持久化与用户或者对话相关的数据。
 
- - userData 在所有对话中为用户全局地储存信息
- - conversationData 对一个单一的对话全局地储存信息。那些对于在这个对话中的所有用户都可见的数据应当被储存在这里。它默认不可用，需要使用bot 的 [persistConversaytionData](URL'https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.iuniversalbotsettings.html#persistconversationdata')设置来启用。
- - privateConversationData （私有对话数据）为一个单一的对话全局地储存信息，但只对当前用户可见。这个数据跨越全部dialog，所以，拿来储存临时的状态。当对话结束的时候就会被清除。
+ - userData 在所有对话中为用户全局地储存信息。
+ - conversationData 在一个单一的对话内全局地储存信息。那些对于在这个对话中的所有用户都可见的数据应当被储存在这里。它默认不可用，需要使用bot 的 [persistConversaytionData](URL'https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.iuniversalbotsettings.html#persistconversationdata')设置来启用。
+ - privateConversationData 为一个单一的对话全局地储存信息，但是只对当前用户可见。这个数据跨越全部dialog，所以，可以拿来储存临时的状态，当对话结束的时候就会被清除。
  - dialogData 维持一个单一的dialog实例中的信息。它对于在一个瀑布中的步骤之间储存临时信息是至关重要的。
  
  使用 Bot Builder 来构建 Bot 是无状态的，以至于可以轻松地将其拓展到多个计算节点运行。因此，通常，你应该避免尝试使用全局变量或者函数闭包来保存状态。否则，当你想拓展你的bot的时候将会出现问题。我们应该利用上面的数据容器来保存临时和永久的数据。
@@ -124,7 +124,7 @@ SDK包含以下几种方式来持久化与用户或者对话相关的数据。
 
  ## 确定意图
 
- 构建一个优秀的 Bot 的关键之一，就是能在用户让你的 Bot 做一些事情的时候，能有效地确定用户的意图。Bot Builder包含一个强大的IntentDialog 类，这个类被设计来辅助完成确定用户意图的任务。IntentDialog类使你能用两种技术的组合来确定用户的意图。你可以传一个正则表达式到[IntentDialog.matchs()](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html#matches)这个函数，用户的消息将会与这个正则表达式进行比较。如果匹配的话，和这个正则表达式关联的处理程序将会被触发。
+ 构建一个优秀的 Bot 的关键之一，就是能在用户让你的 Bot 做一些事情的时候，能有效地确定用户的意图。Bot Builder 包含一个强大的 IntentDialog 类，这个类被设计来辅助完成确定用户意图的任务。IntentDialog类使你能用两种技术的组合来确定用户的意图。你可以传一个正则表达式到[IntentDialog.matchs()](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html#matches)这个函数，用户的消息将会与这个正则表达式进行比较。如果匹配的话，和这个正则表达式关联的处理程序将会被触发。
 
  正则表达式很好，但是对于更强大的意图识别，你可以通过[LIUS](https://www.luis.ai/)来使用机学习。只需要把[LuisRecognizer](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.luisrecognizer.html)加入到你的IntentDialog中（你可以在示例中到是怎么使用的）。IntentDialog也支持正则表达式和识别器插件的结合，它将使用评分法来识别哪个处理程序最有可能被触发。如果没有识别出意图或者得分低于一个[阈值](https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.iintentdialogoptions.html#intentthreshold),onDefault() dialog将会被触发。
 
@@ -295,9 +295,9 @@ npm install --save restify
 ngrok http 3978
 ```
 
-这样将配置一个ngrok转发链接，来把请求转发到你运行在3978端口上的bot那里去。你还需要在你的Bot Framework开发者面板中将转发链接设置为注册端点。配置之后，端点应该像这样——`https://0d6c4024.ngrok.io/api/messages`。别忘了链接末尾包含的`/api/messages`。
+这样将配置一个ngrok转发链接，来把请求转发到你运行在3978端口上的bot那里去。你还需要在你的Bot Framework开发者面板中将转发链接设置为注册端点（endpoint）。配置之后，端点应该像这样——`https://0d6c4024.ngrok.io/api/messages`。别忘了链接末尾包含的`/api/messages`。
 
-你现在可以在调试模式运行你的bot了。如果你使用的是[VScode](https://code.visualstudio.com/),你需要将应用 ID 和密码配置到启动 `env` 里面。
+现在，你可以在调试模式运行你的bot了。如果你使用的是[VScode](https://code.visualstudio.com/),你需要将应用 ID 和密码配置到启动 `env` 里面。
 
 ```json
 {
