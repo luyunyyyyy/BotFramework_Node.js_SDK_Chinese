@@ -24,27 +24,27 @@ Prompts.attachment()| 请求用户上传一份图片或视频
 
 Prompts向它的调用者返回一个IPromptResult.用户的反馈将被包含在results.response领域中，此反馈可能为null。反馈为null的原因有很多种。内置的prompts允许用户通过说一些像“取消”或者“没关系”之类的话来取消某个操作，这些话将会导致反馈为null。有时用户可能并没有成功输入一个正确格式的回应，这也会导致反馈为null。通过检测在result.resumed中返回的ResumeReason，你可以确定导致反馈为null的其他原因。
 
-###Prompts.text()
+### Prompts.text()
 Prompts.text()会请求用户输入一串文字，用户的反馈将会被作为一个IPromptTextResult来返回。
 
 `builder.Prompts.text(session, "What is your name?");`
 
-###Prompts.confirm()
+### Prompts.confirm()
 Prompts.confirm()会请求用户用“是”和“否”来确认一个操作，用户的反馈将会被作为一个IPromptConfirmResult来返回。
 
 `builder.Prompts.confirm(session, "Are you sure you wish to cancel your order?");`
 
-###Prompts.number()
+### Prompts.number()
 Prompts.number()会请求用户反馈一个数字，用户的反馈将会被作为一个IPromptNumberResult来返回。
 
 `builder.Prompts.number(session, "How many would you like to order?");`
 
-###Prompts.time()
+### Prompts.time()
 Prompts.time()会请求用户反馈一个时间，用户的反馈将会被作为一个IPromptTimeResult.来返回。bot framework使用一个名为Chrono的库来从语法上分析用户的反馈。这一框架既支持和当前时间有关的反馈，例如“五分钟以后。”,也支持和当前时间无关的反馈，例如“6月6日下午2点”。
 
 用户反馈的results.response是一个实例，这个实例能被使用EntityRecognizer.resolveTime().的JavaScript日期对象分解。
 
-```
+```javascript
 bot.dialog('/createAlarm', [
     function (session) {
         session.dialogData.alarm = {};
@@ -76,7 +76,7 @@ bot.dialog('/createAlarm', [
     }
 ]);
 ```
-###Prompts.choice()
+### Prompts.choice()
 Prompts.choice()会请求用户从一个列表中做出一个选择。用户的反馈会被作为一个IPromptChoiceResult来返回。含有选项的列表能通过IpromptOptions对象的property而以各种形式展现给用户。用户能通过输入选项的数字或者它的名称来表达他们的选择。支持选项内容的完全匹配和部分匹配。
 
 有一系列的方式能将含有选项的列表传递给Prompts.choice()。
@@ -91,7 +91,7 @@ Prompts.choice()会请求用户从一个列表中做出一个选择。用户的�
 
 例如使用Object map。当一个对象(object)被传递进来，对象键(objects keys)将会被用于确定用户的选择。
 
-```
+```javascript
 var salesData = {
     "west": {
         units: 200,
@@ -122,13 +122,13 @@ bot.dialog('/', [
 ]);
 ```
 
-###Prompts.attachment()
+### Prompts.attachment()
 Prompts.attachment()会请求用户上传一个文件附件例如一幅图片或一段视频。
 用户的反馈将会被作为一个 IPromptAttachmentResult来返回。
 
 `builder.Prompts.attachment(session, "Upload a picture for me to transform.");`
 
-##Dialog Actions
+## Dialog Actions
 Dialog actions提供一些常见操作的快捷方法。DialogAction类提供了一套固定的方法，
 这些方法能够得到一个可以将dialog handler传递给任何接收者的闭包(closure)。
 这些方法包括但不限于 UniversalBot.dialog(), Library.dialog(), IntentDialog.matches(),和IntentDialog.onDefault()。
