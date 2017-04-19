@@ -19,18 +19,18 @@
   一旦你的程序部署好了、数据流也开始进入系统，LUIS 会主动地学习并完善自己。在主动学习过程中，LUIS 识别出相对不确定的交互并请求你根据意图和实体去标注它们。这样做能有诸多好处：首先，LUIS 知道哪些是不确定的，并在你所提供的帮助能最大限度地提高系统性能时，向你请求帮助。其次，当你专注于重要的事时，LUIS 能尽可能快地学习且尽可能少地占用你的时间。
 
 ## 创建你的模型
-  为你的机器人添加自然语言支持的第一步便是创建你的 LUIS 模型。你要做的事是登录 LUIS 并为你的机器人创建一个新的 LUIS 应用。这个应用就是你用来添加意图和实体来让 LUIS 根据它们训练你的机器人的模型的。
+  为你的 Bot 添加自然语言支持的第一步便是创建你的 LUIS 模型。你要做的事是登录 LUIS 并为你的 Bot 创建一个新的 LUIS 应用。这个应用就是你用来添加意图和实体来让 LUIS 根据它们训练你的 Bot 的模型的。
   ![Alt text](https://docs.botframework.com/en-us/images/builder/builder-luis-create-app.png)
-  为了创建新的应用，你需要选择是导入已有的模型(这是你想用 LUIS 做 Bot Builder 的示例应选的选项)，还是用预编译的 Cortana 应用。在本教程中，我们将创建一个基于预编译 Cortana 应用的机器人。当你选择了英语的预编译 Cortana 应用，你将会看到下面这样的对话框。
+  为了创建新的应用，你需要选择是导入已有的模型(这是你想用 LUIS 做 Bot Builder 的示例应选的选项)，还是用预编译的 Cortana 应用。在本教程中，我们将创建一个基于预编译 Cortana 应用的 Bot 。当你选择了英语的预编译 Cortana 应用，你将会看到下面这样的对话框。
 
-  你需要拷贝像这样列在对话框下的链接，这是用于绑定你的[LuisDialog](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/)类到这的链接。这个链接指向 LUIS 发布到你的机器人 LUIS 应用的模型，并会在你的应用的生命期内保持不变。所以一旦你已经训练好并发布你为了 LUIS 应用的模型，你就能甚至在不需要重新部署的情况下，升级和重新训练它。在你构建机器人早期，需要频繁重新训练模型的情况下，这会非常有用。
+  你需要拷贝像这样列在对话框下的链接，这是用于绑定你的[LuisDialog](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/)类到这的链接。这个链接指向 LUIS 发布到你的 Bot LUIS 应用的模型，并会在你的应用的生命期内保持不变。所以一旦你已经训练好并发布你为了 LUIS 应用的模型，你就能甚至在不需要重新部署的情况下，升级和重新训练它。在你构建 Bot 早期，需要频繁重新训练模型的情况下，这会非常有用。
 
   ![Alt text](https://docs.botframework.com/en-us/images/builder/builder-luis-default-app.png)
 
 ## 处理意图 ##
-  一旦你为你的 LUIS 应用部署了一个模型，我们便能创建一个使用那个模型的模块。为了简化操作，我们将创建一个能在[命令行窗口](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.consoleconnector)中交互的 [UniversalBot](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.universalbot) 通用机器人。
+  一旦你为你的 LUIS 应用部署了一个模型，我们便能创建一个使用那个模型的模块。为了简化操作，我们将创建一个能在[命令行窗口](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.consoleconnector)中交互的 [UniversalBot](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.universalbot) 通用 Bot 。
 
-  为你的机器人创建一个文件夹，然后在里面运行:
+  为你的 Bot 创建一个文件夹，然后在里面运行:
   ```
   npm init
   ```
@@ -71,7 +71,7 @@
   ```
 
 ## 处理实体 ##
-  既然我们已经能让我们的机器人理解用户意图的操作了，接下来就使它能真正地添加或删除闹钟。我们将扩展我们的示例来包含一些处理每个[意图](https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.iintent)的逻辑和一个只使用内存的简易闹钟安排器。
+  既然我们已经能让我们的 Bot 理解用户意图的操作了，接下来就使它能真正地添加或删除闹钟。我们将扩展我们的示例来包含一些处理每个[意图](https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.iintent)的逻辑和一个只使用内存的简易闹钟安排器。
   ```javascript
   var builder = require('botbuilder');
 
@@ -190,7 +190,7 @@
   ```
   我们使用[瀑布流](https://docs.botframework.com/en-us/node/builder/chat/dialogs/#waterfall)来实现 set_alarm 和 delete_alarm [意图处理器](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/#intent-handling)。这是一个你可能会用在你的大部分意图处理方式上的常见模式。瀑布流这种方式在 Bot Builder 运作的第一步是某个对话（或像这个例子中的意图处理器）被激活并调用了瀑布流。接下来做些工作，之后通过调用其他对话（例如内置的提示）或者可选地调用传入的 next() 函数，继续执行瀑布流。当一个对话在某一步被调用了，任何从对话中返回的结果都会作为输入传入下一步的 results 参数。
 
-  为了防止意图处理器将 LUIS 识别的任何实体从第一步，一路都在参数中传送；这些额外的信息往往还不是你在完全处理用户请求前想要的。LUIS 使用实体来一路传送额外的数据，但说真的，你不会想获得的是用户之前输入的每一点信息。所以在 set_alarm 这个例子中，我们想要支持的是“设定五分钟后的闹钟叫我起床”、“设个闹钟叫我起床”或就是“设个闹钟”。这意味着我们也许不总是从 LUIS 中获得所有我们期待的实体，甚至当我们得到他们的时候，我们希望有些实体被设定成无效的。所以在所有情况下，我们都要能准备好提示词，来提示用户哪些实体是无效的或是缺少的。Bot Builder 使我们相对容易地来在你的机器人中，用[瀑布流](https://docs.botframework.com/en-us/node/builder/chat/dialogs/#waterfall)和内置[提示语](https://docs.botframework.com/en-us/node/builder/chat/prompts/)来创建多变的提示。
+  为了防止意图处理器将 LUIS 识别的任何实体从第一步，一路都在参数中传送；这些额外的信息往往还不是你在完全处理用户请求前想要的。LUIS 使用实体来一路传送额外的数据，但说真的，你不会想获得的是用户之前输入的每一点信息。所以在 set_alarm 这个例子中，我们想要支持的是“设定五分钟后的闹钟叫我起床”、“设个闹钟叫我起床”或就是“设个闹钟”。这意味着我们也许不总是从 LUIS 中获得所有我们期待的实体，甚至当我们得到他们的时候，我们希望有些实体被设定成无效的。所以在所有情况下，我们都要能准备好提示词，来提示用户哪些实体是无效的或是缺少的。Bot Builder 使我们相对容易地来在你的 Bot 中，用[瀑布流](https://docs.botframework.com/en-us/node/builder/chat/dialogs/#waterfall)和内置[提示语](https://docs.botframework.com/en-us/node/builder/chat/prompts/)来创建多变的提示。
 
   请看处理 set_alarm 意图的瀑布流。我们将第一次尝试验证并储存任何从 LUIS 获得的任何实体。Bot Builder 包含了一个有很多与实体有关的函数的 [EntityRecognizer](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/#entity-recognition) 类。这个例子中，时间能被很好地分解；常常，跨越多个实体的时间也行。(译注：此句翻译存疑) 你能使用 [EntityRecognizer.resolveTime()](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/#resolving-dates--times) 函数来得到一个真正的与传入的时间实体对应 Javascript Date 对象，前提是能根据实体计算出来。
 
@@ -200,11 +200,11 @@
 
   在 delete_alarm 意图处理器中我们有类似的瀑布流。这个比起之前稍微简单些，因为它需要的只有标题，但这个瀑布流演示了 Bot Builder 的两个非常强大的功能。你可以用 [EntityRecognizer.findBestMatch()](https://docs.botframework.com/en-us/node/builder/chat/IntentDialog/#matching-list-items) 函数来比较用户的言论和选项列表，也可以用 [Prompts.choice()](https://docs.botframework.com/en-us/node/builder/chat/prompts/#promptschoice) 函数来展示用户可供选择的选项的列表。两者都十分灵活而且支持选项的模糊匹配。
 
-  最终，我们添加了一个 '/notify' 对话来在他们的闹钟触发时提醒用户。我们简易的闹钟安排器通过调用 [cortanaBot.beginDialog()](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.textbot.html#begindialog) 触发这个推送通知具体说明用户联系的地址和要开始的对话的名称。alarm.from 和 alarm.to 并不与我们的简单的基于 [TextBox](https://docs.botframework.com/en-us/node/builder/bots/TextBot/) 的机器人有关，但在现实的机器人中，你需要用相关的完整的友好的信息使用户明确你将要开始的对话的内容。（译注：此句存疑）
+  最终，我们添加了一个 '/notify' 对话来在他们的闹钟触发时提醒用户。我们简易的闹钟安排器通过调用 [cortanaBot.beginDialog()](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.textbot.html#begindialog) 触发这个推送通知具体说明用户联系的地址和要开始的对话的名称。alarm.from 和 alarm.to 并不与我们的简单的基于 [TextBox](https://docs.botframework.com/en-us/node/builder/bots/TextBot/) 的 Bot 有关，但在现实的 Bot 中，你需要用相关的完整的友好的信息使用户明确你将要开始的对话的内容。（译注：此句存疑）
 
-  机器人提起的的对话的标注中，最重要的是，它们是完整的对话，这意味着用户可以回复机器人的信息，并且这些回复会发回给对话。这是非常强大的功能，因为这意味着你能通知用户他们的闹钟触发了，他们也能回复你的机器人“关掉它”。
+   Bot 提起的的对话的标注中，最重要的是，它们是完整的对话，这意味着用户可以回复 Bot 的信息，并且这些回复会发回给对话。这是非常强大的功能，因为这意味着你能通知用户他们的闹钟触发了，他们也能回复你的 Bot “关掉它”。
 
-  如果我们再次运行我们的机器人，我们能得到类似的输出：
+  如果我们再次运行我们的 Bot ，我们能得到类似的输出：
   ```
   node app.js
   set an alarm in 5 minutes called wakeup
