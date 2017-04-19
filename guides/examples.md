@@ -2,10 +2,10 @@
   - 概述
   - Hello World
   - 基础技巧
-  - 演示机器人
+  - 演示 Bot
 
 ## 概述 ##
-  Node.js 版本的 Bot Builder 示例都是按组组织的，并且都被设计来展示构建好机器人所需要的技巧。要使用这些示例，用 Git 从 GitHub 克隆仓库。
+  Node.js 版本的 Bot Builder 示例都是分组组织的，并且设计来展示构建好 Bot 所需要的技巧。要使用这些示例，请用 Git 从 GitHub 克隆仓库。
   ```
   git clone https://github.com/Microsoft/BotBuilder.git
   cd BotBuilder/Node
@@ -14,7 +14,7 @@
   以下这些 node 的示例可以在 "Node/examples" 下找到。
 
 ## Hello World ##
-  这些示例展示了框架支持的每种类型的机器人的简单 "Hello World" 示例。
+  这些示例展示了框架支持的每种类型的 Bot 的简单 "Hello World" 示例。
   <table>
     <thead>
       <tr>
@@ -35,7 +35,7 @@
   </table>
 
 ## 基础技巧 ##
-  这些例子展示了构建一个好机器人需要的基础技巧。所有的例子使用能在命令行窗口执行的 TextBot 类。
+  这些例子展示了构建一个好 Bot 需要的基础技巧。所有的例子使用能在命令行窗口执行的 TextBot 类。
   <table>
     <thead>
       <tr>
@@ -54,11 +54,11 @@
       </tr>
       <tr>
         <td><a href="https://github.com/Microsoft/BotBuilder/tree/master/Node/examples/basics-menus">basics-menus</a></td>
-        <td>展示怎样为机器人创建简单的菜单系统。</td>
+        <td>展示怎样为 Bot 创建简单的菜单系统。</td>
       </tr>
       <tr>
         <td><a href="https://github.com/Microsoft/BotBuilder/tree/master/Node/examples/basics-naturalLanguage">basics-naturalLanguage</a></td>
-        <td>展示怎样使用 LuisDialog 来为机器人添加自然语言支持。</td>
+        <td>展示怎样使用 LuisDialog 来为 Bot 添加自然语言支持。</td>
       </tr>
       <tr>
         <td><a href="https://github.com/Microsoft/BotBuilder/tree/master/Node/examples/basics-multiTurn">basics-multiTurn</a></td>
@@ -74,7 +74,7 @@
       </tr>
       <tr>
         <td><a href="https://github.com/Microsoft/BotBuilder/tree/master/Node/examples/basics-localization">basics-localization</a></td>
-        <td>展示怎样为机器人添加多语言支持。</td>
+        <td>展示怎样为 Bot 添加多语言支持。</td>
       </tr>
       <tr>
         <td><a href="https://github.com/Microsoft/BotBuilder/tree/master/Node/examples/basics-customPrompt">basics-customPrompt</a></td>
@@ -82,13 +82,13 @@
       </tr>
       <tr>
         <td><a href="https://github.com/Microsoft/BotBuilder/tree/master/Node/examples/basics-libraries">basics-libraries</a></td>
-        <td>展示怎样打包一系列对话成库，以此来在多个机器人中共享。</td>
+        <td>展示怎样打包一系列对话成库，以此来在多个 Bot 中共享。</td>
       </tr>
     </tbody>
   </table>
 
-## 示例机器人 ##
-  这里有一些机器人被设计来展示有哪些可能的对话途径。它们是为你的机器人的对话途径扩展一些闪光点特性的很好的代码片段。
+## 示例 Bot  ##
+  这里有一些 Bot 被设计来展示有哪些可能的对话途径。它们是为你的 Bot 的对话途径扩展一些闪光点特性的很好的代码片段。
   <table>
     <thead>
       <tr>
@@ -99,15 +99,15 @@
     <tbody>
       <tr>
         <td><a href="https://github.com/Microsoft/BotBuilder/tree/master/Node/examples/demo-skype">demo-skype</a></td>
-        <td>一个用来展示在 Skype 上的能力的机器人。</td>
+        <td>一个用来展示在 Skype 上的能力的 Bot。</td>
       </tr>
       <tr>
         <td><a href="https://github.com/Microsoft/BotBuilder/tree/master/Node/examples/demo-skype-calling">demo-skype-calling</a></td>
-        <td>用来展示怎样构建一个 Skype 上的通话机器人。</td>
+        <td>用来展示怎样构建一个 Skype 上的通话 Bot。</td>
       </tr>
       <tr>
         <td><a href="https://github.com/Microsoft/BotBuilder/tree/master/Node/examples/demo-facebook">demo-facebook</a></td>
-        <td>一个用来展示在 Facebook 上的能力的机器人。</td>
+        <td>一个用来展示在 Facebook 上的能力的 Bot。</td>
       </tr>
     </tbody>
   </table>
