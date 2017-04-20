@@ -9,6 +9,9 @@
 也欢迎大家加入到我们的文档翻译活动中。
 
 交流QQ群：230484919
+github 项目仓库：https://github.com/NEUMSC/BotFramework_Node.js_SDK_Chinese
+
+
 
 [git及markdown参考资料](translation_guide.md)
 
@@ -42,7 +45,7 @@
 * [Sesion \(0%\)-陆云阳](chatBots/dialogs.md)
 * [Prompts \(0%\)-牛骋](chatBots/prompts.md)
 * [IntentDialog \(100%\)-张悦](chatBots/intent-dialog.md)
-* [Localization \(0%\)-夏浩耘](chatBots/localization.md)
+* [Localization \(50%\)-夏浩耘（暂时弃坑）](chatBots/localization.md)
 
 ### Calling Bots
 * [UniversalBot \(100%\)-王金龙](callingBots/univeral-call-bot.md)
