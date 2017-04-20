@@ -15,12 +15,14 @@
 * [示例 \(100%\)-谢俊琨](guides/examples.md)
 
 ### Chat bot
-* [UniversalBot \(0%\)-王卓航](chatBots/universal-bot.md)
+
+* [UniversalBot \(100%\)-王卓航](chatBots/universal-bot.md)
 * [Dialogs \(0%\)-邵秋然](chatBots/.md)
-* [Sesion \(0%\)](chatBots/dialogs.md)
-* [Prompts \(0%\)](chatBots/prompts.md)
-* [IntentDialog \(0%\)](chatBots/intent-dialog.md)
-* [Localization \(0%\)](chatBots/localization.md)
+* [Sesion \(0%\)-陆云阳](chatBots/dialogs.md)
+* [Prompts \(100%\)-牛骋](chatBots/prompts.md)
+* [IntentDialog \(100%\)-张悦](chatBots/intent-dialog.md)
+* [Localization \(50%\)-夏浩耘（暂时弃坑）](chatBots/localization.md)
+
 ### Calling Bots
 * [UniversalBot \(100%\)-王金龙](callingBots/univeral-call-bot.md)
 * [Prompts \(0%\)](callingBots/promts.md)
