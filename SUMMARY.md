@@ -1,31 +1,34 @@
 # Summary
 
-## Overview
+### Overview
 
 * [README](README.md)
 * [快速入门](overview/getting-started.md)
+             
 
-## Guides
+### Guides
 
-* [核心概念 \(80%\)](guides/core-concepts.md)
-* [自然语言理解 \(100%\)](guides/understanding-natural-language.md)
-* [使用VSCode进行本地调试 \(100%\)](guides/debug-locally-with-vscode.md)
-* [部署到Azure \(0%\)]()
-* [示例 \(100%\)](guides/examples.md)
+* [核心概念 \(95%\)-夏浩耘](guides/core-concepts.md)
+* [自然语言理解 \(100%\)-谢俊琨](guides/understanding-natural-language.md)
+* [使用VSCode进行本地调试 \(100%\)-谢俊琨](guides/debug-locally-with-vscode.md)
+* [部署到Azure \(95%\)-夏浩耘](guides/deploying-to-azure.md)
+* [示例 \(100%\)-谢俊琨](guides/examples.md)
 
-## Chat bot
-* [UniversalBot \(0%\)]()
-* [Dialogs \(0%\)]()
-* [Sesion \(0%\)]()
-* [Prompts \(0%\)]()
-* [IntentDialog \(0%\)]()
-*[Localization \(0%\)]()
-## Calling Bots
-* [UniversalBot \(0%\)]()
-* [Prompts \(0%\)]()
+### Chat bot
 
-## Libraries
-* [Chat Reference \(0%\)]()
-* [Calling Reference \(0%\)]()
-* [SDK on Github \(0%\)]()
-* [Release Note \(0%\)]()
+* [UniversalBot \(100%\)-王卓航](chatBots/universal-bot.md)
+* [Dialogs \(0%\)-邵秋然](chatBots/.md)
+* [Sesion \(0%\)-陆云阳](chatBots/dialogs.md)
+* [Prompts \(100%\)-牛骋](chatBots/prompts.md)
+* [IntentDialog \(100%\)-张悦](chatBots/intent-dialog.md)
+* [Localization \(50%\)-夏浩耘（暂时弃坑）](chatBots/localization.md)
+
+### Calling Bots
+* [UniversalBot \(100%\)-王金龙](callingBots/univeral-call-bot.md)
+* [Prompts \(0%\)](callingBots/promts.md)
+
+### Libraries
+* [Chat Reference \(0%\)](libraries/chat-reference.md)
+* [Calling Reference \(0%\)](libraries/calling-reference.md)
+* [SDK on Github \(0%\)](libraries/SDK-on-github.md)
+* [Release Note \(0%\)](libraries/release-note.md)
