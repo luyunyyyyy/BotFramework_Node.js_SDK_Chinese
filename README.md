@@ -42,8 +42,8 @@ github 项目仓库：https://github.com/NEUMSC/BotFramework_Node.js_SDK_Chinese
 
 
 * [UniversalBot \(100%\)-王卓航](chatBots/universal-bot.md)
-* [Dialogs \(0%\)-邵秋然](chatBots/.md)
-* [Sesion \(0%\)-陆云阳](chatBots/dialogs.md)
+* [Dialogs \(100%\)-邵秋然](chatBots/dialogs.md)
+* [Sesion \(0%\)-陆云阳](chatBots/.md)
 * [Prompts \(100%\)-牛骋](chatBots/prompts.md)
 * [IntentDialog \(100%\)-张悦](chatBots/intent-dialog.md)
 * [Localization \(50%\)-夏浩耘（暂时弃坑）](chatBots/localization.md)
