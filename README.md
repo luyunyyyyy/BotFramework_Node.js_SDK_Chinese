@@ -51,7 +51,7 @@ github 项目仓库：https://github.com/NEUMSC/BotFramework_Node.js_SDK_Chinese
 
 ### Calling Bots
 * [UniversalBot \(100%\)-王金龙](callingBots/univeral-call-bot.md)
-* [Prompts \(0%\)](callingBots/prompts.md)
+* [Prompts \(100%\)-谢俊琨](callingBots/prompts.md)
 
 ### Libraries
 * [Chat Reference \(0%\)](libraries/chat-reference.md)
