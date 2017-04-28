@@ -128,8 +128,9 @@ SDK包含以下几种方式来持久化与用户或者对话相关的数据。
 
  正则表达式很好，但是对于更强大的意图识别，你可以通过[LIUS](https://www.luis.ai/)来使用机学习。只需要把[LuisRecognizer](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.luisrecognizer.html)加入到你的IntentDialog中（你可以在示例中到是怎么使用的）。IntentDialog也支持正则表达式和识别器插件的结合，它将使用评分法来识别哪个处理程序最有可能被触发。如果没有识别出意图或者得分低于一个[阈值](https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.iintentdialogoptions.html#intentthreshold),onDefault() dialog将会被触发。
 
+
  ```javascript
- var builder = require('botbuilder');
+var builder = require('botbuilder');
 
 var connector = new builder.ConsoleConnector().listen();
 var bot = new builder.UniversalBot(connector);
@@ -168,8 +169,7 @@ bot.dialog('/profile', [
     }
 ]);
  ```
-
- 我们的 Bot 已经更新为使用IntentDialog，它将寻找用户说的话里面有没有 “change name”。如你所见，这个意图的处理程序是另一个瀑布。这意味着你可以在给被触发的意图的回复里面以任何顺序执行的提示或者操作。我们把之前的dialog 瀑布移动到了意图dialog onDefault()的处理程序里面，否则仍然没有变化。现在，我们运行 HelloBot ，我们将获得如下的对话流。
+我们的 Bot 已经更新为使用IntentDialog，它将寻找用户说的话里面有没有 “change name”。如你所见，这个意图的处理程序是另一个瀑布。这意味着你可以在给被触发的意图的回复里面以任何顺序执行的提示或者操作。我们把之前的dialog 瀑布移动到了意图dialog onDefault()的处理程序里面，否则仍然没有变化。现在，我们运行 HelloBot ，我们将获得如下的对话流。
 
  ```
  node app.js
@@ -186,7 +186,7 @@ Hello Steve!
  ```
 
  ## 发布到 Bot Framework 服务
- 现在，我们拥有了一个功能完整的 HelloBot（它可以很好地问候用户）。我们应该把它发布到Bot Framework服务，以便于我们可以通过多种交流渠道来和它交谈。我们需要更新我们的 Bot ，使他使用一个正确配置的ChatConnector（连接器）：
+现在，我们拥有了一个功能完整的 HelloBot（它可以很好地问候用户）。我们应该把它发布到Bot Framework服务，以便于我们可以通过多种交流渠道来和它交谈。我们需要更新我们的 Bot ，使他使用一个正确配置的ChatConnector（连接器）：
 
  ```javascript
 var builder = require('botbuilder');

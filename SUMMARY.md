@@ -4,7 +4,7 @@
 
 * [README](README.md)
 * [快速入门](overview/getting-started.md)
-             
+
 
 ### Guides
 
@@ -27,11 +27,10 @@
 
 ### Calling Bots
 * [UniversalBot \(100%\)-王金龙](callingBots/univeral-call-bot.md)
-* [Prompts \(0%\)](callingBots/promts.md)
+* [Prompts \(100%\)-谢俊琨](callingBots/prompts.md)
 
 ### Libraries
 * [Chat Reference \(0%\)](libraries/chat-reference.md)
 * [Calling Reference \(0%\)](libraries/calling-reference.md)
 * [SDK on Github \(0%\)](libraries/SDK-on-github.md)
 * [Release Note \(0%\)](libraries/release-note.md)
-
